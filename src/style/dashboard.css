@@ -1,0 +1,37 @@
+
+
+.menu{
+    height:100vh;
+    background: hsla(205, 46%, 10%, 1);
+    width: 12%;
+    min-width: 150px;
+    border-right: 1px solid #fff;
+    text-align: center;
+}
+
+.menuBtn{
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    background: rgb(41, 80, 107);
+    font-size: 20px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+}
+
+.stat{
+    font-size: 35px;
+}
+
+.stats-icon{
+    float:left;
+    margin-top: 5px;
+}
+
+
+
+.dashboard{
+    display: flex;
+}
+
