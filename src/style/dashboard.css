@@ -7,6 +7,7 @@
     min-width: 150px;
     border-right: 1px solid #fff;
     text-align: center;
+    position:sticky;
 }
 
 .menuBtn{
@@ -33,5 +34,27 @@
 
 .dashboard{
     display: flex;
+}
+
+.collection-container{
+    display: grid;
+  grid-template-columns: repeat(5, 250px);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  flex: 2;
+  height: 600px;
+  
+}
+
+.cont-cont{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 350px;
+}
+
+.right{
+    flex:1;
+    margin-top: 270px;
 }
 

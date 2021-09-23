@@ -1,13 +1,11 @@
 .card{
     min-width: 200px;
     max-width: 200px;
-    min-height: 300px;
-    max-height:300px ;
+    min-height: 280px;
+    max-height:280px ;
     border-radius: 10px;
-    margin-left: 40px;
-    margin-top: 40px;
     border: 1px solid;
-    
+    margin:0 auto;
 }
 
 .common{
@@ -57,11 +55,10 @@
 }
 
 .stats{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 .card-stats{
   text-align: center;
-  font-size: 1.1rem;
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
