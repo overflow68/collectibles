@@ -1,38 +1,36 @@
 /* eslint-disable default-case */
-function Card( damage, hitpoints, luck, extra, rarity) {
+import images from './storageImg.js'
+
+
+function Card( damage, hitpoints, luck, rarity, image) {
     this.damage = damage;
     this.hitpoints = hitpoints;
-    this.luck = luck;
-    this.extra = extra;
     this.rarity = rarity;
+    this.luck = luck
+    this.image = image
   }
   
-  let commonCount = 0;
-  let rareCount = 0;
-  let epicCount = 0;
-  let legendCount = 0;
   
-  let collection = [];
-  let rarities = ["common", "rare", "epic", "legendary"];
+  let rarities = ["card common", "card rare", "card epic", "card legendary"];
   
   let extras = [
-    "+ 5% damage",
-    "+ 10% damage",
-    "+ 15% damage",
-    "+ 20% damage",
-    "+ 25% damage",
+    " + 10% damage",
+    " + 15% damage",
+    " + 20% damage",
+    " + 25% damage",
+    " + 30% damage",
   
-    "+ 5% hitpoints",
-    "+ 15% hitpoints",
-    "+ 25% hitpoints",
-    "+ 35% hitpoints",
-    "+ 40% hitpoints",
+    " + 10% hitpoints",
+    " + 15% hitpoints",
+    " + 20% hitpoints",
+    " + 25% hitpoints",
+    " + 30% hitpoints",
   
-    "+ 10% Crit. damage",
-    "+ 20% Crit. damage",
-    "+ 30% Crit. damage",
-    "+ 40% Crit. damage",
-    "+ 50% Crit. damage",
+    "+ 10% Damage resistance",
+    "+ 20% Damage resistance",
+    "+ 30% Damage resistance",
+    "+ 40% Damage resistance",
+    "+ 50% Damage resistance",
   
   
   ];
@@ -56,8 +54,8 @@ function Card( damage, hitpoints, luck, extra, rarity) {
       damage: Math.floor(Math.random() * 100),
       hitpoints: Math.floor(Math.random() * 100),
       luck: Math.floor(Math.random() * 51),
-      extra: extras[(Math.floor(Math.random() * extras.length ))],
       rarity: "",
+      image: (Math.floor(Math.random() * images.length ))
     };
   
    
@@ -66,54 +64,48 @@ function Card( damage, hitpoints, luck, extra, rarity) {
       templateCard.damage,
       templateCard.hitpoints,
       templateCard.luck,
-      templateCard.extra
     );
   
     let newCard = new Card(
       templateCard.damage,
       templateCard.hitpoints,
       templateCard.luck,
-      templateCard.extra,
-      templateCard.rarity
+      templateCard.rarity,
+      templateCard.image
     );
   
-    collection.push(newCard);
+    return newCard;
   }
   
   
+  let teste =[{
+    damage: "92",
+    hitpoints:"97",
+    luck: "47",
+    extra: "+ 50% Crit. damage",
+    rarity:"card common",
+    image: 2
   
-  for (let i = 0; i <= 5000; i++) {
-    createCard();
+  },{
+    damage: "92",
+    hitpoints:"97",
+    luck: "47",
+    extra: "+ 50% Crit. damage",
+    rarity:"card rare",
+    image: 32
+  
+  },
+  {
+    damage: "92",
+    hitpoints:"97",
+    luck: "47",
+    extra: "+ 50% Crit. damage",
+    rarity:"card epic",
+    image: 15
+  
   }
+ ]
+
   
-  collection.forEach((item) => {
-   
-    switch (item.rarity) {
-      case "common":
-        commonCount += 1;
-        break;
-      case "rare":
-        rareCount += 1;
-        break;
-      case "epic":
-        epicCount += 1;
-        break;
-      case "legendary":
-        legendCount += 1;
-        break;
-    }
-  });
-  
-  console.log("common", commonCount);
-  console.log("rare", rareCount);
-  console.log("epic", epicCount);
-  console.log("legendary", legendCount);
-  
-  
-  console.log(
-    collection.filter((card) =>{
-      if (card.rarity === "legendary") {
-        return true;
-      }
-    })
-  );
+
+  export default createCard
