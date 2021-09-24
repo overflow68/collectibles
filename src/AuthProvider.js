@@ -12,6 +12,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
+  const [loading1, setLoading1] = useState(true)
 
   const auth = getAuth(initFire);
   const provider = new GoogleAuthProvider()
@@ -27,8 +28,9 @@ export function AuthProvider({ children }) {
    
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data());
+      
     } else {
-      setDoc(doc(colRef, result.user.uid), {
+     await setDoc(doc(colRef, result.user.uid), {
         gold: 50000,
         collection: []
       });
@@ -54,6 +56,7 @@ signOut(auth).then(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user)
       setLoading(false)
+      
     })
 
     return unsubscribe

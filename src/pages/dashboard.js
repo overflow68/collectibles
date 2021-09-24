@@ -25,8 +25,11 @@ function Dashboard() {
   const docRef = doc(db, "users", currentUser.uid);
 
   useEffect(() => {
-    getDocument();
-  }, []);
+    let timeout = setTimeout(getDocument, 500)
+    return function cleanup() {
+      clearTimeout(timeout);
+    }
+  },[]);
 
   const forwardPage = () => {
     let copyPage = { ...currentPage };
@@ -68,9 +71,7 @@ function Dashboard() {
       setUserData((prevState) => {
         return { ...prevState, gold: docSnap.data().gold };
       });
-    } else {
-      console.log("No such document!");
-    }
+    } 
   }
 
   const logState = () => {
@@ -82,9 +83,6 @@ function Dashboard() {
     saveChanges();
   };
 
-  function log() {
-    console.log(userData.collection.slice(0, 8));
-  }
 
   return (
     <div className="dashboard">
@@ -106,9 +104,7 @@ function Dashboard() {
         <button className="menuBtn" onClick={logState}>
           New Card
         </button>
-        <button className="menuBtn" onClick={log}>
-          teasfd
-        </button>
+      
       </div>
 
       <div className="cont-cont">
@@ -133,7 +129,7 @@ function Dashboard() {
                     />
                   );
                 })
-            : console.log("errou")}
+            : null}
         </div>
 
         <FaArrowRight
