@@ -7,6 +7,7 @@ import uniqid from 'uniqid'
 
 export default function Collection(props){
     const [currentPage, setCurrentPage] = useState({first: 0, last:10});
+    const [pageNumber,setPageNumber] = useState(1)
     const [templateArray,setTemplate]=useState(["","","","","","","","","","",])
     
 
@@ -17,6 +18,7 @@ export default function Collection(props){
         if (copyPage.last < 91) {
           copyPage.first += 10;
           copyPage.last += 10;
+          setPageNumber(pageNumber+1)
           setCurrentPage(copyPage);
         }
       };
@@ -25,6 +27,7 @@ export default function Collection(props){
         if (copyPage.first > 9) {
           copyPage.first -= 10;
           copyPage.last -= 10;
+          setPageNumber(pageNumber-1)
           setCurrentPage(copyPage);
         }
       };
@@ -33,6 +36,7 @@ export default function Collection(props){
 
 
     return(
+      <div className="big-cont">
         <div className="cont-cont">
         <FaArrowLeft
           onClick={backPage}
@@ -62,6 +66,7 @@ export default function Collection(props){
                 return  <EmptyCard key ={uniqid()}/>
               }
             })}
+            
         </div>
 
         <FaArrowRight
@@ -69,6 +74,9 @@ export default function Collection(props){
           className="right"
           size="50"
         ></FaArrowRight>
+       
+      </div> 
+      <div className="page-num">{pageNumber}/10</div>
       </div>
     )
 }

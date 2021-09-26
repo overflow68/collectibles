@@ -45,12 +45,15 @@ export function ColProvider({ children }) {
   }
 
   const logState = () => {
+    if (userData.collection.length <100){
     let copyData = { ...userData };
     let card = createCard();
+    
     copyData.gold = copyData.gold - 5;
     copyData.collection.push(card);
     setUserData(copyData);
     saveChanges();
+  }
   };
 
   useEffect(() => {

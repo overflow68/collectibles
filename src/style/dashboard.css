@@ -43,6 +43,7 @@
   grid-row-gap: 10px;
   flex: 2;
   height: 600px;
+  text-align: center;
   
 }
 
@@ -50,12 +51,23 @@
     display: flex;
     width: 80%;
     margin: 0 auto;
-    margin-top: 350px;
+    margin-top: 330px;
 }
 
 .right{
     flex:1;
     margin-top: 270px;
     min-width: 30px;
+}
+
+.page-num{
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+}
+
+.big-cont{
+ 
+    width: 100%;
 }
 
