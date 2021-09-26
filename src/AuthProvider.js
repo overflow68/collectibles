@@ -12,7 +12,7 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState()
   const [loading, setLoading] = useState(true)
-  const [loading1, setLoading1] = useState(true)
+
 
   const auth = getAuth(initFire);
   const provider = new GoogleAuthProvider()

@@ -1,0 +1,16 @@
+.empty-card{
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 280px;
+    max-height:280px ;
+    border-radius: 10px;
+    border: 1px solid grey;
+    margin:0 auto;
+    text-align: center;
+    background: rgb(62, 62, 68);
+}
+
+.empty-text{
+    margin-top:125px;
+    font-size: 20px;
+}

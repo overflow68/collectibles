@@ -1,27 +1,74 @@
-import React, {useState,useEffect} from "react"
+import React, {useState} from "react"
 import Card from './card'
 import {FaArrowRight} from 'react-icons/fa'
 import {FaArrowLeft} from 'react-icons/fa'
+import EmptyCard from "./emptyCard";
+import uniqid from 'uniqid'
 
 export default function Collection(props){
-    const [currentPage, setPage] = useState({first: 0, last:10})
-    const [cards, setCards]=useState(props.cards.slice(0,10));
-    const [loading,setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState({first: 0, last:10});
+    const [templateArray,setTemplate]=useState(["","","","","","","","","","",])
+    
+
 
     
+    const forwardPage = () => {
+        let copyPage = { ...currentPage };
+        if (copyPage.last < 91) {
+          copyPage.first += 10;
+          copyPage.last += 10;
+          setCurrentPage(copyPage);
+        }
+      };
+      const backPage = () => {
+        let copyPage = { ...currentPage };
+        if (copyPage.first > 9) {
+          copyPage.first -= 10;
+          copyPage.last -= 10;
+          setCurrentPage(copyPage);
+        }
+      };
+
+  
+
+
     return(
         <div className="cont-cont">
-            <FaArrowLeft className="right"  size="50"></FaArrowLeft>
+        <FaArrowLeft
+          onClick={backPage}
+          className="right"
+          size="50"
+        ></FaArrowLeft>
 
         <div className="collection-container">
-            {cards.length? cards.map(item=>{
-            return <Card classs={item.rarity} img ={item.image} dmg={item.damage} hp={item.hitpoints} lck={item.luck} />
-          }):console.log("errou")
+          {props.data? props.data
+                .slice(currentPage.first, currentPage.last)
+                .map((item) => {
+                  return (
+                    <Card
+                     key={item.id}
+                      id={item.id}
+                      classs={item.rarity}
+                      img={item.image}
+                      dmg={item.damage}
+                      hp={item.hitpoints}
+                      lck={item.luck}
+                    />
+                  );
+                }):null
             }
+            {templateArray.map((item,index)=>{
+              if (index >props.data.slice(currentPage.first,currentPage.last).length-1){
+                return  <EmptyCard key ={uniqid()}/>
+              }
+            })}
         </div>
 
-        <FaArrowRight className="right"  size="50"></FaArrowRight>
-       
-        </div>
+        <FaArrowRight
+          onClick={forwardPage}
+          className="right"
+          size="50"
+        ></FaArrowRight>
+      </div>
     )
 }

@@ -1,8 +1,9 @@
 /* eslint-disable default-case */
 import images from './storageImg.js'
+import uniqid from 'uniqid';
 
-
-function Card( damage, hitpoints, luck, rarity, image) {
+function Card(id, damage, hitpoints, luck, rarity, image ) {
+    this.id = id;
     this.damage = damage;
     this.hitpoints = hitpoints;
     this.rarity = rarity;
@@ -13,27 +14,7 @@ function Card( damage, hitpoints, luck, rarity, image) {
   
   let rarities = ["card common", "card rare", "card epic", "card legendary"];
   
-  let extras = [
-    " + 10% damage",
-    " + 15% damage",
-    " + 20% damage",
-    " + 25% damage",
-    " + 30% damage",
   
-    " + 10% hitpoints",
-    " + 15% hitpoints",
-    " + 20% hitpoints",
-    " + 25% hitpoints",
-    " + 30% hitpoints",
-  
-    "+ 10% Damage resistance",
-    "+ 20% Damage resistance",
-    "+ 30% Damage resistance",
-    "+ 40% Damage resistance",
-    "+ 50% Damage resistance",
-  
-  
-  ];
   
   function checkRarity(str, hp, luck) {
     let sumStats = str + hp + luck;
@@ -51,6 +32,7 @@ function Card( damage, hitpoints, luck, rarity, image) {
   
   function createCard() {
     let templateCard = {
+      id: uniqid(),
       damage: Math.floor(Math.random() * 100),
       hitpoints: Math.floor(Math.random() * 100),
       luck: Math.floor(Math.random() * 51),
@@ -67,13 +49,14 @@ function Card( damage, hitpoints, luck, rarity, image) {
     );
   
     let newCard = new Card(
+      templateCard.id,
       templateCard.damage,
       templateCard.hitpoints,
       templateCard.luck,
       templateCard.rarity,
       templateCard.image
     );
-  
+    console.log(newCard)
     return newCard;
   }
   

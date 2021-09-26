@@ -56,5 +56,6 @@
 .right{
     flex:1;
     margin-top: 270px;
+    min-width: 30px;
 }
 
