@@ -26,14 +26,12 @@ function Dashboard() {
           <CgCardSpades className="stats-icon" size="30" />
           {userData.collection ? userData.collection.length + "/100" : "-"}
         </div>
-        <button className="menuBtn" onClick={logOut}>
-          Open Packs
-        </button>
+        
         <button className="menuBtn" onClick={logOut}>
           Sign out
         </button>
         <button className="menuBtn" onClick={logState}>
-          New Card
+          Buy new card (5<RiCopperCoinLine/>)
   </button>
       
       </div>
