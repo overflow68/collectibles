@@ -44,12 +44,13 @@
   flex: 2;
   height: 600px;
   text-align: center;
+  width: 100%;
   
 }
 
 .cont-cont{
     display: flex;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     margin-top: 330px;
 }
@@ -67,7 +68,7 @@
 }
 
 .big-cont{
- 
     width: 100%;
+    text-align: center;
 }
 

@@ -12,7 +12,7 @@ export function useCollection() {
 }
 export function ColProvider({ children }) {
     const { currentUser } = useAuth()
-    const [userData, setUserData] = useState({ collection: [] });
+    const [userData, setUserData] = useState({ collection: [],gold:0 });
     const [loading, setLoading] = useState(true)
 
     const db = getFirestore(initFire);
@@ -27,6 +27,7 @@ export function ColProvider({ children }) {
   }
 
   async function getDocument() {
+    if (docRef !=null){
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       if (docSnap.data().collection.length !== 0) {
@@ -41,11 +42,11 @@ export function ColProvider({ children }) {
       setUserData((prevState) => {
         return { ...prevState, gold: docSnap.data().gold };
       });
-    } 
+    } }
   }
 
   const logState = () => {
-    if (userData.collection.length <100){
+    if (userData.collection.length <100 && userData.gold >4){
     let copyData = { ...userData };
     let card = createCard();
     
@@ -56,6 +57,20 @@ export function ColProvider({ children }) {
   }
   };
 
+  const deleteCard = (e)=>{
+    let copyData = {...userData};
+    copyData.collection.forEach((item, index)=>{
+      if (item.id === e.target.id){
+        copyData.collection.splice(index,1)
+        setTimeout(setUserData(copyData), 100);
+        saveChanges()
+      }
+    })
+    
+    
+  }
+
+
   useEffect(() => {
     getDocument()
     setLoading(false)
@@ -65,7 +80,8 @@ export function ColProvider({ children }) {
   
     const value = {
       userData,
-      logState
+      logState,
+      deleteCard
     
     }
   

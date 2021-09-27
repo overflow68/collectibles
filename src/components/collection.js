@@ -3,7 +3,7 @@ import Card from './card'
 import {FaArrowRight} from 'react-icons/fa'
 import {FaArrowLeft} from 'react-icons/fa'
 import EmptyCard from "./emptyCard";
-import uniqid from 'uniqid'
+import uniqid from 'uniqid';
 
 export default function Collection(props){
     const [currentPage, setCurrentPage] = useState({first: 0, last:10});

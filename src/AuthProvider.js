@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
       
     } else {
      await setDoc(doc(colRef, result.user.uid), {
-        gold: 50000,
+        gold: 0,
         collection: []
       });
       
