@@ -4,11 +4,13 @@ import {FaArrowRight} from 'react-icons/fa'
 import {FaArrowLeft} from 'react-icons/fa'
 import EmptyCard from "./emptyCard";
 import uniqid from 'uniqid';
+import { useCollection } from "../CollectionProvider";
 
-export default function Collection(props){
+export default function Collection(){
     const [currentPage, setCurrentPage] = useState({first: 0, last:10});
     const [pageNumber,setPageNumber] = useState(1)
     const [templateArray,setTemplate]=useState(["","","","","","","","","","",])
+    const {userData} = useCollection()
     
 
 
@@ -45,7 +47,7 @@ export default function Collection(props){
         ></FaArrowLeft>
 
         <div className="collection-container">
-          {props.data? props.data
+          {userData.collection ? userData.collection
                 .slice(currentPage.first, currentPage.last)
                 .map((item) => {
                   return (
@@ -62,7 +64,7 @@ export default function Collection(props){
                 }):null
             }
             {templateArray.map((item,index)=>{
-              if (index >props.data.slice(currentPage.first,currentPage.last).length-1){
+              if (index >userData.collection.slice(currentPage.first,currentPage.last).length-1){
                 return  <EmptyCard key ={uniqid()}/>
               }
             })}
