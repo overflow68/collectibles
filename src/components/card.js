@@ -4,8 +4,6 @@ import {GiBroadsword} from 'react-icons/gi'
 import {AiFillHeart} from 'react-icons/ai'
 import {GiMineExplosion} from 'react-icons/gi'
 import images from '../scripts/storageImg'
-import {RiDeleteBinLine} from 'react-icons/ri'
-import {IoMdAddCircleOutline} from 'react-icons/io'
 import { useCollection } from '../CollectionProvider';
 
 

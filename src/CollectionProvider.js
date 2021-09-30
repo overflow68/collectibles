@@ -1,5 +1,5 @@
 import { initFire } from "./Firebase.js";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import {doc,getDoc,getFirestore,collection,setDoc,} from "firebase/firestore";
 
   import { useAuth } from "./AuthProvider.js";
@@ -12,8 +12,9 @@ export function useCollection() {
 }
 export function ColProvider({ children }) {
     const { currentUser } = useAuth()
-    const [userData, setUserData] = useState({ collection: [],gold:0 });
+    const [userData, setUserData] = useState({ gold:0,collection:[], power: 0, name:"" });
     const [loading, setLoading] = useState(true)
+    const isFirstRender = useRef(true)
 
     const db = getFirestore(initFire);
   const docRef = (currentUser? doc(db, "users", currentUser.uid):null);
@@ -23,6 +24,8 @@ export function ColProvider({ children }) {
     await setDoc(doc(userRef, currentUser.uid), {
       gold: userData.gold,
       collection: JSON.stringify(userData.collection),
+      power: userData.power,
+      name : userData.name
     });
   }
 
@@ -42,33 +45,59 @@ export function ColProvider({ children }) {
       setUserData((prevState) => {
         return { ...prevState, gold: docSnap.data().gold };
       });
+
+      setUserData((prevState) => {
+        return { ...prevState, power: docSnap.data().power };
+      });
+      setUserData((prevState) => {
+        return { ...prevState, name: docSnap.data().name };
+      });
     } }
   }
 
-  const logState = () => {
+  const calcPower = (collection)=>{
+    let power = 0;
+    collection.forEach(item=>{
+      power += item.damage + item.hitpoints
+    })
+    return power * 10;
+  }
+   function logState(){
     if (userData.collection.length <100 && userData.gold >4){
     let copyData = { ...userData };
     let card = createCard();
     
     copyData.gold = copyData.gold - 5;
     copyData.collection.push(card);
-    setUserData(copyData);
-    saveChanges();
+    copyData.power = calcPower(copyData.collection);
+   setUserData(copyData)
+  
+    
   }
   };
+  
 
   const deleteCard = (e)=>{
     let copyData = {...userData};
     copyData.collection.forEach((item, index)=>{
       if (item.id === e.target.id){
         copyData.collection.splice(index,1)
-        setTimeout(setUserData(copyData), 100);
-        saveChanges()
+        copyData.power = calcPower(copyData.collection);
+       setUserData(copyData)
+       
       }
     })
     
     
   }
+
+useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false // toggle flag after first render/mounting
+      return;
+    }
+    saveChanges() // do something after state has updated
+  }, [userData]);
 
 
   useEffect(() => {

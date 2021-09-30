@@ -87,6 +87,7 @@
 
 .delete-card{
     width: 100%;
+    cursor: pointer;
 }
 
 .add-card-deck{

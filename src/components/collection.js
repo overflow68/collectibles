@@ -39,6 +39,10 @@ export default function Collection(){
 
     return(
       <div className="big-cont">
+        <div className="user-info">
+        <div className="user">{userData.name}</div>
+        
+        </div>
         <div className="cont-cont">
         <FaArrowLeft
           onClick={backPage}
