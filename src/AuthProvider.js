@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import { initFire} from "./Firebase"
 import { GoogleAuthProvider,getAuth, signInWithPopup, signOut} from "firebase/auth";
-import { getFirestore, doc,getDoc, setDoc,collection } from "firebase/firestore";
+import { getFirestore, doc,getDoc, setDoc,collection,updateDoc, arrayUnion } from "firebase/firestore";
 
 const AuthContext = React.createContext()
 
@@ -22,20 +22,25 @@ export function AuthProvider({ children }) {
  await signInWithPopup(auth, provider)
   .then(async(result) => {
 
-    const docRef =doc(db, "users", result.user.uid);
-    const colRef =collection(db, "users");
+    const docRef = doc(db, "users", result.user.uid);
+    const colRef = collection(db, "users");
     const docSnap = await getDoc(docRef);
    
     if (docSnap.exists()) {
       console.log("Document data:", docSnap.data());
+     /* await setDoc(doc(db, "HoF", "smnunique"), {
+        players: arrayUnion(docSnap.data())
+      }); Find better way to add player to hof*/
       
     } else {
      await setDoc(doc(colRef, result.user.uid), {
         gold: 0,
         collection: []
       });
+     
       
     }
+    
       
     
 });

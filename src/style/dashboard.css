@@ -3,8 +3,7 @@
 .menu{
     height:100vh;
     background: hsla(205, 46%, 10%, 1);
-    width: 12%;
-    min-width: 180px;
+    min-width: 140px;
     border-right: 1px solid #fff;
     text-align: center;
     position:sticky;
@@ -38,7 +37,7 @@
 
 .collection-container{
     display: grid;
-  grid-template-columns: repeat(5, 250px);
+  grid-template-columns: repeat(5, 220px);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   flex: 2;
@@ -50,9 +49,10 @@
 
 .cont-cont{
     display: flex;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
-    margin-top: 315px;
+    margin-top: 265px;
+    justify-content: space-around;
 }
 
 .right{
