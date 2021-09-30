@@ -22,12 +22,13 @@ export default function Menu(){
           {userData.collection ? userData.power: "-"}
         </div>
         
-        <button className="menuBtn" onClick={logOut}>
-          Sign out
-        </button>
         <button className="menuBtn" onClick={logState}>
           Buy new card (5<RiCopperCoinLine/>)
   </button>
+        <button className="menuBtn" onClick={logOut}>
+          Sign out
+        </button>
+        
       
       </div>
     )

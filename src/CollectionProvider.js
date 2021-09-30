@@ -13,12 +13,11 @@ export function useCollection() {
 export function ColProvider({ children }) {
     const { currentUser } = useAuth()
     const [userData, setUserData] = useState({ gold:0,collection:[], power: 0, name:"" });
-    const [loading, setLoading] = useState(true)
     const isFirstRender = useRef(true)
 
     const db = getFirestore(initFire);
   const docRef = (currentUser? doc(db, "users", currentUser.uid):null);
-
+  
   async function saveChanges() {
     const userRef = collection(db, "users");
     await setDoc(doc(userRef, currentUser.uid), {
@@ -101,11 +100,11 @@ useEffect(() => {
 
 
   useEffect(() => {
-    getDocument()
-    setLoading(false)
-
-    
-  },[]);
+      let timer1 = setTimeout(() => getDocument(),300);
+      return () => {
+        clearTimeout(timer1);
+      };
+    },[]);
   
     const value = {
       userData,
@@ -116,7 +115,7 @@ useEffect(() => {
   
     return (
       <ColContext.Provider value={value}>
-        {!loading && children}
+        {children}
       </ColContext.Provider>
     )
   }

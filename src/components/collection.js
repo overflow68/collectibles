@@ -9,7 +9,7 @@ import { useCollection } from "../CollectionProvider";
 export default function Collection(){
     const [currentPage, setCurrentPage] = useState({first: 0, last:10});
     const [pageNumber,setPageNumber] = useState(1)
-    const [templateArray,setTemplate]=useState(["","","","","","","","","","",])
+    const templateArray=["","","","","","","","","","",]
     const {userData} = useCollection()
     
 
@@ -67,7 +67,7 @@ export default function Collection(){
                   );
                 }):null
             }
-            {templateArray.map((item,index)=>{
+            {templateArray.map((index)=>{
               if (index >userData.collection.slice(currentPage.first,currentPage.last).length-1){
                 return  <EmptyCard key ={uniqid()}/>
               }

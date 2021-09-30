@@ -60,34 +60,7 @@ function Card(id, damage, hitpoints, luck, rarity, image ) {
     return newCard;
   }
   
-  
-  let teste =[{
-    damage: "92",
-    hitpoints:"97",
-    luck: "47",
-    extra: "+ 50% Crit. damage",
-    rarity:"card common",
-    image: 2
-  
-  },{
-    damage: "92",
-    hitpoints:"97",
-    luck: "47",
-    extra: "+ 50% Crit. damage",
-    rarity:"card rare",
-    image: 32
-  
-  },
-  {
-    damage: "92",
-    hitpoints:"97",
-    luck: "47",
-    extra: "+ 50% Crit. damage",
-    rarity:"card epic",
-    image: 15
-  
-  }
- ]
+ 
 
   
 
