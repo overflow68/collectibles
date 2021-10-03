@@ -67,7 +67,7 @@ export default function Collection(){
                   );
                 }):null
             }
-            {templateArray.map((index)=>{
+            {templateArray.map((item,index)=>{
               if (index > userData.collection.slice(currentPage.first,currentPage.last).length-1){
                 return  <EmptyCard key ={uniqid()}/>
               }
