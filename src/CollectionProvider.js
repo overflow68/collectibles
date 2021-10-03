@@ -61,7 +61,7 @@ export function ColProvider({ children }) {
     collection.forEach(item=>{
       power += item.damage + item.hitpoints
     })
-    return power * 10;
+    return Math.round(power * 10.101);
   }
    function logState(){
     if (userData.collection.length <100 && userData.gold >4){
