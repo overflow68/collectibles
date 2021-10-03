@@ -14,6 +14,7 @@ export function ColProvider({ children }) {
     const { currentUser } = useAuth()
     const [userData, setUserData] = useState({ gold:0,collection:[], power: 0, name:"" });
     const isFirstRender = useRef(true)
+    const [isLoading, setLoading] = useState(true)
 
     const db = getFirestore(initFire);
   const docRef = (currentUser? doc(db, "users", currentUser.uid):null);
@@ -52,6 +53,7 @@ export function ColProvider({ children }) {
         return { ...prevState, name: docSnap.data().name };
       });
     } }
+    setLoading(false)
   }
 
   const calcPower = (collection)=>{
@@ -100,11 +102,9 @@ useEffect(() => {
 
 
   useEffect(() => {
-      let timer1 = setTimeout(() => getDocument(),300);
-      return () => {
-        clearTimeout(timer1);
-      };
-    },[]);
+      getDocument()
+      
+    },[isLoading]);
   
     const value = {
       userData,
@@ -115,7 +115,7 @@ useEffect(() => {
   
     return (
       <ColContext.Provider value={value}>
-        {children}
+        {!isLoading && children}
       </ColContext.Provider>
     )
   }
