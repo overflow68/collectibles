@@ -49,7 +49,12 @@ export function AuthProvider({ children }) {
     
       
     
-});
+}).catch((error) => {
+  // Handle Errors here.
+  const errorCode = error.code;
+  const errorMessage = error.message;
+  alert(error.message)
+});;
   } 
   
 
