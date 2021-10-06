@@ -3,6 +3,7 @@ import { RiCopperCoinLine } from "react-icons/ri";
 import { CgCardSpades } from "react-icons/cg";
 import { useCollection } from "../CollectionProvider";
 import { useAuth } from "../AuthProvider";
+import {Link} from "react-router-dom"
 import {BsLightning} from 'react-icons/bs'
 export default function Menu(){
     const {userData,logState} = useCollection()
@@ -25,6 +26,12 @@ export default function Menu(){
         <button className="menuBtn" onClick={logState}>
           Buy new card (5<RiCopperCoinLine/>)
   </button>
+  <Link to="/dashboard"><button className="menuBtn">
+          Dashboard
+  </button></Link>
+  <Link to="/gambling"><button className="menuBtn">
+          Need money?
+  </button></Link>
         <button className="menuBtn" onClick={logOut}>
           Sign out
         </button>

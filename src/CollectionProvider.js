@@ -109,7 +109,9 @@ useEffect(() => {
     const value = {
       userData,
       logState,
-      deleteCard
+      deleteCard,
+      saveChanges,
+      setUserData
     
     }
   

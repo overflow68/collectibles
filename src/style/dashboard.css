@@ -4,6 +4,7 @@
     height:100vh;
     background: hsla(205, 46%, 10%, 1);
     min-width: 140px;
+    max-width: 200px;
     border-right: 1px solid #fff;
     text-align: center;
     position:sticky;

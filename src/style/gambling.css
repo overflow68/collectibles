@@ -1,0 +1,103 @@
+.square{
+    width: 120px;
+    height: 120px;
+    background: green;
+    margin: 2px;
+    border: 1px solid #fff;
+    font-size: 110px;
+}
+
+.alter-square{
+    width: 120px;
+    height: 120px;
+    background: yellow;
+    margin: 2px;
+    border: 1px solid #fff;
+    font-size: 110px;
+}
+
+.square-cont{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.squares{
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    
+}
+
+.gamble{
+    display: flex;
+}
+
+.game-cont{
+    width: 100%;
+}
+
+.button-cont{
+    width: 100%;
+    text-align: center;
+}
+
+.game-button{
+    width: 50px;
+    height: 30px;
+    font-size: 20px;
+    margin: 10px;
+
+}
+
+.bet-btn-cont{
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.bet-btn{
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+input{
+    height: 50px;
+    width: 150px;
+    font-size: 30px;
+    padding-bottom: 7px;
+}
+
+.sess-results{
+    font-size: 40px;
+    margin:0 auto;
+    text-align: center;
+    padding-top: 4px;
+
+}
+
+.positive{
+    font-size: 40px;
+    color: green;
+}
+
+.result-cont{
+    display: flex;
+    justify-content: center;
+    width: 380px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.coinn{
+    padding-top: 9px;
+}
+
+
+.result-wrap{
+    border: 1px solid #fff;
+    background: rgb(41, 41, 41);
+    padding-left:6px ;
+}
