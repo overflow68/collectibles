@@ -12,7 +12,7 @@ export default function Game(){
     const {userData, saveChanges, setUserData} =useCollection();
     const[sessionResult,setResult] = useState(0)
     const moreMult = ()=>{
-        if (multiplier<8){
+        if (multiplier<9){
         let copySquares= [...squares];
         copySquares.push(<Square/>)
         setSquares(copySquares)
@@ -33,11 +33,11 @@ export default function Game(){
     }
 
     const placeBet = ()=>{
-        if (userData.gold > 0 && userData.gold > inputData && inputData > 0){
-            let cpuNum = Math.floor(Math.random() * multiplier);
-            let playerNum = Math.floor(Math.random() * multiplier);
+        if (userData.gold > 0 && userData.gold >= inputData && inputData > 0){
+            let cpuNum = Math.floor(Math.random() * (multiplier*100));
+            let playerNum = Math.floor(Math.random() * (multiplier*100));
 
-            if (cpuNum === playerNum){
+            if (cpuNum < ((multiplier *100)/multiplier) && playerNum < ((multiplier *100)/multiplier)){
                 let copyData = {...userData};
                 copyData.gold += inputData * multiplier;
                 setUserData(copyData)
@@ -52,14 +52,15 @@ export default function Game(){
                 saveChanges()
                 
             }
-
+            console.log(cpuNum)
+            console.log(playerNum)
         }
     }
     return(
         <div className="game-cont">
             <div className="result-cont">
             <div className="sess-results">Session results:</div>
-            <div className="result-wrap"><div className="positive">{sessionResult}<RiCopperCoinLine className="coinn"></RiCopperCoinLine></div></div>
+            <div className="result-wrap"><div className="positive">{Math.round(sessionResult)}<RiCopperCoinLine className="coinn"></RiCopperCoinLine></div></div>
             </div>
            <div className="square-cont">
            <div>1. Pick the level of risk you want to take</div>
@@ -71,8 +72,9 @@ export default function Game(){
                </div> 
 
            <div className="button-cont">
+               <button className="game-button" onClick={lessMult}>-1</button>
                    <button className="game-button" onClick={moreMult}>+1</button>
-                   <button className="game-button" onClick={lessMult}>-1</button>
+                   
                </div>
                <div className="bet-btn-cont">
                <div>2. Enter the amount you want to bet</div>

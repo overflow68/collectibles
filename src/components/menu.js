@@ -12,7 +12,7 @@ export default function Menu(){
         <div className="menu">
         <div className="stat">
           <RiCopperCoinLine className="stats-icon" size="30" />
-          {userData.gold  ? userData.gold : 0}
+          {userData.gold  ? Math.round(userData.gold) : 0}
         </div>
         <div className="stat">
           <CgCardSpades className="stats-icon" size="30" />
