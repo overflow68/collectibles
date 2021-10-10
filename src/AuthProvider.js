@@ -36,12 +36,13 @@ export function AuthProvider({ children }) {
         gold: 25,
         collection: [],
         power: 0,
-        name: result.user.displayName
+        name: result.user.displayName,
+        goldMine: 0
       });
       const docSnap1 = await getDoc(docRef);
       if (docSnap1.exists()){
         
-      await updateDoc(doc(db, "HoF", "smnunique"), {
+      await setDoc(doc(db, "HoF", "smnunique"), {
         players: arrayUnion(docSnap1.id)
       });}
       

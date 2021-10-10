@@ -83,6 +83,11 @@ input{
     color: green;
 }
 
+.negative{
+    font-size: 40px;
+    color: rgb(243, 82, 82);
+}
+
 .result-cont{
     display: flex;
     justify-content: center;

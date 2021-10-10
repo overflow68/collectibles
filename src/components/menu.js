@@ -3,6 +3,7 @@ import { RiCopperCoinLine } from "react-icons/ri";
 import { CgCardSpades } from "react-icons/cg";
 import { useCollection } from "../CollectionProvider";
 import { useAuth } from "../AuthProvider";
+import CoinMine from './mining';
 import {Link} from "react-router-dom"
 import {BsLightning} from 'react-icons/bs'
 export default function Menu(){
@@ -12,7 +13,7 @@ export default function Menu(){
         <div className="menu">
         <div className="stat">
           <RiCopperCoinLine className="stats-icon" size="30" />
-          {userData.gold  ? Math.round(userData.gold) : 0}
+          {userData.gold  ? Math.round(userData.gold * 10) / 10 : 0}
         </div>
         <div className="stat">
           <CgCardSpades className="stats-icon" size="30" />
@@ -30,12 +31,12 @@ export default function Menu(){
           Dashboard
   </button></Link>
   <Link to="/gambling"><button className="menuBtn">
-          Need money?
+          Gambling
   </button></Link>
         <button className="menuBtn" onClick={logOut}>
           Sign out
         </button>
-        
+        <CoinMine/>
       
       </div>
     )

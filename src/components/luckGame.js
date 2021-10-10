@@ -10,6 +10,7 @@ export default function Game(){
     const [squares, setSquares]=useState([<Square key={uniqid()} multiplier="1"/>,<Square key={uniqid()} multiplier="2" />])
     const [inputData,setData]=useState(0);
     const {userData, saveChanges, setUserData} =useCollection();
+    const [won,setWon]=useState(true);
     const[sessionResult,setResult] = useState(0)
     const moreMult = ()=>{
         if (multiplier<9){
@@ -41,14 +42,16 @@ export default function Game(){
                 let copyData = {...userData};
                 copyData.gold += inputData * multiplier;
                 setUserData(copyData)
-                setResult(sessionResult+(inputData*multiplier))
+                setWon(true)
+                setResult("+" + (inputData*multiplier-inputData))
                 saveChanges()
                 
             }else{
                 let copyData = {...userData};
                 copyData.gold -= inputData;
                 setUserData(copyData)
-                setResult(sessionResult-inputData)
+                setWon(false)
+                setResult("-" + inputData)
                 saveChanges()
                 
             }
@@ -60,7 +63,7 @@ export default function Game(){
         <div className="game-cont">
             <div className="result-cont">
             <div className="sess-results">Session results:</div>
-            <div className="result-wrap"><div className="positive">{Math.round(sessionResult)}<RiCopperCoinLine className="coinn"></RiCopperCoinLine></div></div>
+            <div className="result-wrap"><div className={won ? "positive" : "negative"}>{Math.round(sessionResult)}<RiCopperCoinLine className="coinn"></RiCopperCoinLine></div></div>
             </div>
            <div className="square-cont">
            <div>1. Pick the level of risk you want to take</div>

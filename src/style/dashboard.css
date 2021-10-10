@@ -86,3 +86,14 @@
 .user{
     margin-top: 35px;
 }
+
+
+.mine-wrap{
+    border: 2px solid yellow;
+    width: 100%;
+    font-size: 35px;
+}
+
+.minedd{
+    padding-left: 55px;
+}
