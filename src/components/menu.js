@@ -41,9 +41,6 @@ export default function Menu(){
         <button className="menuBtn" onClick={logOut}>
           Sign out
         </button>
-        <button className="menuBtn" >
-          Sign out
-        </button>
         <CoinMine/>
 
       </div>
