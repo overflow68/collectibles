@@ -21,7 +21,7 @@ import '../style/dashboard.css'
 
       const claim = ()=>{
         setUserData((prevState) => {
-            return { ...prevState, gold: mined +userData.gold };
+            return { ...prevState, gold: mined + userData.gold };
           });
           setMined(0)
           saveChanges()

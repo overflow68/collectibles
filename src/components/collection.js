@@ -4,11 +4,13 @@ import {FaArrowRight} from 'react-icons/fa'
 import {FaArrowLeft} from 'react-icons/fa'
 import EmptyCard from "./emptyCard";
 import uniqid from 'uniqid';
+import { useAuth } from "../AuthProvider";
 import { useCollection } from "../CollectionProvider";
 
 export default function Collection(){
     const [currentPage, setCurrentPage] = useState({first: 0, last:10});
-    const [pageNumber,setPageNumber] = useState(1)
+    const [pageNumber,setPageNumber] = useState(1);
+    const {currentUser} = useAuth()
     const templateArray=["","","","","","","","","","",]
     const {userData} = useCollection()
     
@@ -40,7 +42,7 @@ export default function Collection(){
     return(
       <div className="big-cont">
         <div className="user-info">
-        <div className="user">{userData.name}</div>
+        <div className="user">{currentUser.displayName}</div>
         
         </div>
         <div className="cont-cont">

@@ -12,7 +12,7 @@ export function useCollection() {
 }
 export function ColProvider({ children }) {
     const { currentUser } = useAuth()
-    const [userData, setUserData] = useState({ gold:0,collection:[], power: 0, name:"", goldMine:0 });
+    const [userData, setUserData] = useState({ gold:0,collection:[], power: 0, goldMine:0 });
     const isFirstRender = useRef(true)
     const [isLoading, setLoading] = useState(true)
 
@@ -25,7 +25,6 @@ export function ColProvider({ children }) {
       gold: userData.gold,
       collection: JSON.stringify(userData.collection),
       power: userData.power,
-      name : userData.name,
       goldMine: userData.goldMine
     });
   }
@@ -50,9 +49,7 @@ export function ColProvider({ children }) {
       setUserData((prevState) => {
         return { ...prevState, power: docSnap.data().power };
       });
-      setUserData((prevState) => {
-        return { ...prevState, name: docSnap.data().name };
-      });
+      
       setUserData((prevState) => {
         return { ...prevState, goldMine: docSnap.data().goldMine };
       });
@@ -68,7 +65,7 @@ export function ColProvider({ children }) {
     return Math.round(power * 10.101);
   }
    function logState(){
-    if (userData.collection.length <100 && userData.gold >4){
+    if (userData.collection.length <100 && userData.gold >4.9){
     let copyData = { ...userData };
     let card = createCard();
     

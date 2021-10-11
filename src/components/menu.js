@@ -6,9 +6,14 @@ import { useAuth } from "../AuthProvider";
 import CoinMine from './mining';
 import {Link} from "react-router-dom"
 import {BsLightning} from 'react-icons/bs'
+
 export default function Menu(){
+
     const {userData,logState} = useCollection()
     const { logOut } = useAuth();
+
+
+    
     return(
         <div className="menu">
         <div className="stat">
@@ -36,8 +41,11 @@ export default function Menu(){
         <button className="menuBtn" onClick={logOut}>
           Sign out
         </button>
+        <button className="menuBtn" >
+          Sign out
+        </button>
         <CoinMine/>
-      
+
       </div>
     )
 }
