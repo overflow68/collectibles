@@ -41,7 +41,7 @@ export function AuthProvider({ children }) {
           console.log("Document data:", docSnap.data());
         } else {
           await setDoc(doc(colRef, result.user.uid), {
-            gold: 500,
+            gold: 0,
             collection: [],
             power: 0,
             goldMine: 0,

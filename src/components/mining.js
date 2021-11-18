@@ -32,7 +32,7 @@ import '../style/dashboard.css'
     useEffect(() => {
         const timer = setTimeout(() => {
             mine()
-          }, 1800);
+          }, 200);
           
           return () => clearTimeout(timer);
 
