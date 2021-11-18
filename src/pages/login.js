@@ -19,9 +19,6 @@ function Login() {
 
     return (
         <div className="main-login">
-          <h1>Best Deck;</h1>
-          <h2>Collect them all</h2>
-      <button className="login-btn" onClick={login} >Sign in with Google</button>
       </div>
       
     );

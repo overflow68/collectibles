@@ -1,4 +1,4 @@
-import { HashRouter as Router, Switch, Route} from "react-router-dom"
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Login from "./pages/login"
 import {AuthProvider} from './AuthProvider.js';
 import { ColProvider } from "./CollectionProvider";
@@ -20,7 +20,6 @@ function App() {
           <PrivateRoute exact path = "/gambling" component ={Gamble}></PrivateRoute>
           </ColProvider>
         </Switch>
-      
     </Router>
     
     </div>
