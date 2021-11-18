@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/collectibles/static/css/main.7faf575e.chunk.css",
-    "main.js": "/collectibles/static/js/main.4ba597cc.chunk.js",
-    "main.js.map": "/collectibles/static/js/main.4ba597cc.chunk.js.map",
+    "main.css": "/collectibles/static/css/main.9d1778d9.chunk.css",
+    "main.js": "/collectibles/static/js/main.3f3772fc.chunk.js",
+    "main.js.map": "/collectibles/static/js/main.3f3772fc.chunk.js.map",
     "runtime-main.js": "/collectibles/static/js/runtime-main.4ffad9f5.js",
     "runtime-main.js.map": "/collectibles/static/js/runtime-main.4ffad9f5.js.map",
     "static/js/2.04298fa9.chunk.js": "/collectibles/static/js/2.04298fa9.chunk.js",
     "static/js/2.04298fa9.chunk.js.map": "/collectibles/static/js/2.04298fa9.chunk.js.map",
     "index.html": "/collectibles/index.html",
-    "static/css/main.7faf575e.chunk.css.map": "/collectibles/static/css/main.7faf575e.chunk.css.map",
+    "static/css/main.9d1778d9.chunk.css.map": "/collectibles/static/css/main.9d1778d9.chunk.css.map",
     "static/js/2.04298fa9.chunk.js.LICENSE.txt": "/collectibles/static/js/2.04298fa9.chunk.js.LICENSE.txt",
     "static/media/arkane.084e2b66.jpg": "/collectibles/static/media/arkane.084e2b66.jpg",
     "static/media/assassin.337d5dda.jpg": "/collectibles/static/media/assassin.337d5dda.jpg",
@@ -49,7 +49,7 @@
   "entrypoints": [
     "static/js/runtime-main.4ffad9f5.js",
     "static/js/2.04298fa9.chunk.js",
-    "static/css/main.7faf575e.chunk.css",
-    "static/js/main.4ba597cc.chunk.js"
+    "static/css/main.9d1778d9.chunk.css",
+    "static/js/main.3f3772fc.chunk.js"
   ]
 }
